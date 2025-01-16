@@ -209,7 +209,7 @@ find "$EFS_PATH" -type f ! -name "*.log" -exec rm -f {} +
 2. **EFS Usage**: Use AWS CloudWatch to monitor EFS storage usage before and after deletions.
 
 
-### **2. Estimation of Deletion Time**
+## **Estimation of Deletion Time**
 #### **Assumptions**
 - **Storage Type:** Let's assume EBS (SSD) or a comparable fast storage.
 - **Deletion Rate:** 500 files/second per thread (realistic for SSDs).
@@ -222,7 +222,7 @@ find "$EFS_PATH" -type f ! -name "*.log" -exec rm -f {} +
 
 ---
 
-### **3. Compute Needs**
+### **Compute Needs**
 #### **Scenario: Using a Script or Tool**
 - **CPU:**  
   - Single-core is sufficient if the deletion is not multi-threaded.  
