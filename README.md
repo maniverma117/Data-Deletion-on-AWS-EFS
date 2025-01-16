@@ -129,6 +129,19 @@ spec:
               claimName: efs-pvc
 ```
 
+### **Customizations**
+- **Schedule**: Update the `schedule` field in the CronJob manifest to your desired time interval.
+- **Resource Limits**: Add `resources` to the container spec for fine-grained control over CPU and memory usage:
+  ```yaml
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "500m"
+    limits:
+      memory: "512Mi"
+      cpu: "1"
+  ```
+
 ---
 
 ### **Step 5: Persistent Volume and PVC for EFS**
