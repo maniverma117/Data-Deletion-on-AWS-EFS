@@ -1,4 +1,4 @@
-# **README: Regular Data Deletion Process on AWS EFS**
+# **Regular Data Deletion Process on AWS EFS**
 
 ## **Overview**
 This document outlines the process to implement and deploy a **regular data deletion schedule** on AWS Elastic File System (EFS) using Kubernetes CronJobs. It provides a detailed guide, including the Kubernetes manifest, Dockerfile, and instructions for deployment.
