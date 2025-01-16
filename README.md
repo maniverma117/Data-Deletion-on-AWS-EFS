@@ -208,3 +208,26 @@ find "$EFS_PATH" -type f ! -name "*.log" -exec rm -f {} +
 
 2. **EFS Usage**: Use AWS CloudWatch to monitor EFS storage usage before and after deletions.
 
+
+### **2. Estimation of Deletion Time**
+#### **Assumptions**
+- **Storage Type:** Let's assume EBS (SSD) or a comparable fast storage.
+- **Deletion Rate:** 500 files/second per thread (realistic for SSDs).
+
+#### **Calculation**
+- **Files to Delete:** \( 1,090,000 \) files
+- **Deletion Time (single thread):**  
+  \( \frac{1,090,000}{500} = 2,180 \text{ seconds} = ~36.3 \text{ minutes} \)
+- With **10 concurrent threads**, the deletion can finish in ~4 minutes.
+
+---
+
+### **3. Compute Needs**
+#### **Scenario: Using a Script or Tool**
+- **CPU:**  
+  - Single-core is sufficient if the deletion is not multi-threaded.  
+  - For 10 threads: a 4-core CPU is typically sufficient.
+- **RAM:**  
+  - Around **4–8 GB RAM** for file metadata caching and smooth processing.  
+  - If the files are highly nested, consider **16 GB RAM**.
+
